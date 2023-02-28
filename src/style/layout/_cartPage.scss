@@ -1,0 +1,16 @@
+.cart {
+  &__header {
+    margin-bottom: 56px;
+  }
+  &__total {
+    width: max-content;
+    margin-top: 32px;
+    @include display_flex($direction: column, $align: flex-start, $gap: 16px);
+    & .amount{
+      @include display_flex($direction: column, $align: flex-start, $gap: 8px);
+    }
+    & .total__button {
+      width: 280px;
+    }
+  }
+}

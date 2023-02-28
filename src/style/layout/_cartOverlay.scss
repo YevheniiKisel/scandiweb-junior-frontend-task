@@ -1,0 +1,44 @@
+.cart{
+  position: relative;
+  &__badge{
+    @include typography($font-family: $font_roboto, $font-weight: 700, $font_size: 14px);
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    @include display_flex;
+    overflow: hidden;
+    @include position_absolute($top: -6px, $left: 16px);
+    padding: 2px;
+  }
+  &__overlay{
+    @include overlay($position: fixed, $top: 80px, $background-color:$color_overlay_background)
+  }
+  &__container{
+    @include position_absolute($right: 72px);
+    @include display_flex($direction: column, $gap: 32px, $align: flex-start);
+    padding: 1rem 2rem;
+    & .cart__product-list{
+      width: 100%;
+      @include display_flex($direction: column, $gap: 32px, $justify: flex-start, $align: flex-start);
+      & .cart__products{
+        @include display_flex($direction: column, $gap: 40px, $justify: flex-start, $align: flex-start);
+      }
+      & .cart__product-total {
+        width: 100%;
+        @include display_flex($justify: space-between)
+      }
+    }
+    & .cart__buttons {
+      @include display_flex($gap: 12px);
+      width: 100%;
+      & a {
+        width: 100%;
+        & .btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

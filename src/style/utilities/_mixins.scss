@@ -1,0 +1,131 @@
+// TYPOGRAPHY
+@mixin typography($font_size: 16px, $font-family: $font_raleway, $font-weight: 400, $line-height: 100%, $color: $color_secondary) {
+  font: {
+    family: $font-family;
+    size: $font_size;
+    weight: $font-weight;    
+  }
+  line-height: $line-height;
+  color: $color;
+}
+
+// ANIMATION 
+@mixin animation_dropdown($toggleMode, $duration: 500ms, $delay: 0 ) {
+  @if $toggleMode == open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transition: $duration $delay;  
+  } @else if $toggleMode == close {
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: $duration $delay; 
+  } @else {
+    @error 'Unknown mode #{$toggleMode}.'
+  }
+};
+
+@mixin animation_fade($fadeMode, $duration: 500ms) {
+  @if $fadeMode == in {
+    opacity: 1;
+    visibility: visible;
+    transition: $duration;
+  } @else if $fadeMode == out {
+    opacity: 0;
+    visibility: hidden;
+    transition: $duration;
+  } @else {
+    @error 'Unknown fade mode #{$fadeMode}.';
+  }
+}
+
+// OVERLAY
+@mixin overlay($position, $top: 0, $bottom:0, $left: 0, $right: 0, $background-color, $opacity: 22%, $z-index: 5){
+  position: $position;
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+  background-color: $background-color;
+  opacity: $opacity;
+  z-index: 10;
+}
+
+
+// <-- LAYOUT -->
+
+// Displaying
+@mixin display_flex ($direction : row, $justify: center, $align: center, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap
+}
+@mixin display_grid ($grid-row-template: none, $grid-column-template: none, $gap: none){
+  display: grid;
+  grid-template-columns: $grid-column-template;
+  grid-template-rows: $grid-row-template;
+  gap: $gap;
+}
+
+@mixin position_absolute ($top: auto, $left: auto, $bottom: auto, $right: auto, $transform: none){
+  position: absolute;
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+  transform: $transform;
+}
+
+
+//<-- BUTTON --> 
+@mixin button {
+  @extend %button;
+  @include typography($font_size: 14px, $font-weight: 600, $line-height: 120% );
+  padding: 1rem 2rem;
+}
+
+@mixin button__attribute--text{
+  padding: 0;
+  width: 63px;
+  height: 45px;
+  border: 1px solid $color_secondary;
+  @include typography($font-family: $font_source-sans-pro, $font_size: 16px);
+  letter-spacing: 0.05em;
+  transition: all 0.5s ease;
+  &.checked {
+    background-color: $color_secondary;
+    color: white;
+  }
+}
+
+@mixin button__attribute--text--mini{
+  @include button__attribute--text;
+  @include typography(14px, $font_source-sans-pro, 400, 160% );
+  min-width: 24px;
+  width: max-content;
+  height: 24px;
+}
+
+@mixin button__attribute--color{
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  &.checked {
+    outline: 4px solid $color_primary;
+    border-color: transparent;
+    outline-offset: 2px;
+  }
+}
+
+@mixin  button__attribute--color--mini {
+  @include button__attribute--color;
+  width: 16px;
+  height: 16px;
+  &.checked {
+    outline: 2px solid $color_primary;
+    outline-offset: 1px;
+  }
+}

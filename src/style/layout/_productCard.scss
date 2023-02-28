@@ -1,0 +1,16 @@
+.product {
+  &__list {
+    @include display_grid($grid-column-template: 386px 386px 386px, $gap: 100px 40px);
+    & .product__wrapper{
+      position: relative;
+    }
+  }
+  &__overlay {
+    @include overlay($position: absolute, $background-color: #FFF, $opacity: 50%);
+    @include display_flex;
+  }
+  &__card{
+    position: relative;
+    display: block;
+  }
+}

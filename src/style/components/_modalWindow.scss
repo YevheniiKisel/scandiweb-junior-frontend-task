@@ -1,0 +1,11 @@
+.modal {
+  & .window{
+    &__title{
+      @include typography($font_size: 30px, $font-weight: 400);
+    }
+    &__text {
+      @include typography;
+      text-align: center;
+    }
+  }
+}

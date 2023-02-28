@@ -1,0 +1,6 @@
+.plp {
+  &__title {
+    margin-bottom: 6.5rem;
+    @include typography($font-size: 42px, $font-weight: 400, $line-height: 160%);
+  }
+}

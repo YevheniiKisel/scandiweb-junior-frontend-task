@@ -1,0 +1,25 @@
+// Margin and  padding reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+//Body
+body {
+  margin: 0 100px 100px 100px;
+  &:has(.cart__overlay.open){
+    overflow: hidden;
+  }
+}
+
+a {
+  text-decoration: none;
+  
+}
+
+img {
+  object-fit: contain;
+}
+

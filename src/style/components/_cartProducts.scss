@@ -1,0 +1,87 @@
+//Style for cartProducts on the page (default)
+.cart-products {
+  & .product__description {
+    & .description__brand {
+      @include typography($font-weight: 600, $line-height: 90%, $font_size: 30px);
+    }
+    & .description__name {
+      @include typography($font-weight: 400, $line-height: 90%, $font_size: 30px);
+    }
+    & .description__price {
+      @include typography($font-weight: 700, $font_size: 24px);  
+    }
+    & .attribute {
+      & .attribute__name {
+        @include typography($font-family: $font_roboto_condenced, $font-weight: 700, $font_size: 18px);
+      }
+      & .attribute__values {
+        & .value__text {
+          @include button__attribute--text;
+          &:disabled {
+            cursor: default;
+          }
+        }
+        & .value__color {
+          @include button__attribute--color;
+          &:disabled {
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+  & .product__features{
+    & .feature__quantity {
+      & .btn img{
+        scale: 50%;
+      }
+      & .quantity__value {
+        @include typography($font-weight: 500, $line-height: 160%, $font_size: 24px);
+
+      }
+    }
+  }
+}
+
+// Style for cardProducts inside overlay
+.cart-products.overlay {
+  & .product__description {
+    & .description__brand {
+      @include typography($font-weight: 300, $line-height: 160%, $font_size: 16px);
+    }
+    & .description__name {
+      @include typography($font-weight: 300, $line-height: 160%, $font_size: 16px);
+    }
+    & .description__price {
+      @include typography($font-weight: 500, $line-height: 160% ,$font_size: 16px);  
+    }
+    & .attribute {
+      & .attribute__name {
+        @include typography($font_size: 14px, $line-height: 114%);
+      }
+      & .attribute__values {
+        & .value__text {
+          @include button__attribute--text--mini;
+          
+          &:disabled {
+            cursor: default;
+          }
+        }
+        & .value__color {
+          @include button__attribute--color--mini;
+          &:disabled {
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+  & .product__features {
+    & .feature__quantity {
+      & .quantity__value {
+        @include typography($font-weight: 500, $line-height: 160%, $font_size: 16px);
+
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+//<-- BUTTONS -->
+  //General style
+  .btn {
+    @include button;
+  }
+    //Button icons
+  .btn__icon{
+    padding: 0;
+  }
+    //Button list
+  .btn__list{
+    padding: 1.25rem 0px 1.25rem 1.25rem;
+    width: 100%;
+    z-index: 2;
+    justify-content: flex-start;
+    cursor: pointer;
+    @include typography(18px, $line-height: 160%, $font-weight:500 );
+  }
+    //Regular buttons
+  .btn__primary {
+    background-color: $color_primary;
+    color: white;
+    &--round {
+      border-radius: 50%;
+    }
+  }
+  .btn__secondary {
+    border: 1px solid $color_secondary;
+  }
+    // Toggle button
+  .btn__toggle {
+    border: 1px solid $color_secondary;
+    padding: 0;
+    height: 45px;
+    width: 45px;
+    &--mini{
+      border: 1px solid $color_secondary;
+      padding: 0;  
+      height: 24px;
+      width: 24px;
+    }
+  } 
+    // Pagination button
+  .btn__pagination {
+    background-color: #000000BA;
+    padding: 0;
+    height: 24px;
+    width: 24px;
+  }

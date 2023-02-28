@@ -1,0 +1,30 @@
+.currency {
+  &__icon {
+    gap: 10px;
+    @include typography(18px, $line-height: 160%, $font-weight:500 );
+  }
+  &__dropdown {
+    margin-top: 0.5rem;
+    min-width: 115px;
+    background-color: $color_dropdown_background;
+    box-shadow: $shadow-box;
+
+    //Dropdown animation ---
+    &.open{
+      @include animation_dropdown(open, $delay: 0.25ms)
+    }
+    &.closed{
+      @include animation_dropdown(close, $delay: 0.25ms)
+    }
+    // ---^
+    
+    & .currency__button {
+      transition: all 0.5s;
+      &:hover {
+        background-color: $color_dropdown-hover_background;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+    }
+  }
+}

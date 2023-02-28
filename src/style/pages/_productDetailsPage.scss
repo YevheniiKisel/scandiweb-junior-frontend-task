@@ -1,0 +1,52 @@
+.pdp {
+  &__image-carousel{
+    .pdp__image{
+      width: 80px;
+      height: 80px;
+    }
+  }
+  &__product-description{
+    min-width: 300px;
+    max-width: 411px;
+    & .pdp__product-brand{
+      @include typography($font_size: 30px, $font-weight: 600);
+      margin-bottom: 1rem;
+    }
+    & .pdp__product-name{
+      @include typography($font_size: 30px, $font-weight: 400);
+      margin-bottom: 2.75rem;
+    }
+    & .pdp__product-attributes {
+      margin-bottom: 2.0rem;
+      & .pdp__attribute, .pdp__price {
+        width: 100%;
+        & .pdp__attribute-name {
+          @include typography($font-family: $font_roboto-condenced, $font-weight: 700 );
+          margin-bottom: 0.5rem;
+        }
+        & .pdp__attribute--text {
+          @include button__attribute--text;
+        }
+        & .pdp__attribute--color {
+          @include button__attribute--color;
+        }
+      }
+      & .pdp__price {
+        & .pdp__price-title {
+          @include typography($font-family: $font_roboto-condenced, $font-weight: 700 );
+        }
+        & .pdp__price-amount {
+          @include typography($font_size: 24px, $font-weight: 700, $line-height: 75%);
+        }
+      }
+    }
+    & .pdp__button {
+      font-size: 16px;
+      width: 100%;
+    }
+    & .pdp__product-about{
+      margin-top: 2.5rem;
+      @include typography($font-family: $font_roboto, $line-height: auto);
+    }
+  }
+}

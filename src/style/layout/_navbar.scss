@@ -1,0 +1,17 @@
+.navbar {
+  position: relative;
+  @include display_flex(row, space-between, flex-end);
+  &__categories{
+    @include display_flex(row);
+    & .navbar__link{
+      display: block;
+    }
+  }
+  &__logo{
+    @include position_absolute($top:50%, $left:50%, $transform: translate(-50%, -50%));
+  }
+  &__features{
+    @include display_flex(row, center, center, 22px);
+  }
+}
+

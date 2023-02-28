@@ -1,0 +1,40 @@
+.pdp {
+  @include display_grid($grid-column-template: 80px auto, $gap: 40px);
+  &__image-carousel {
+    @include display_flex($direction: column, $gap: 40px, $justify: flex-start);
+    
+  }
+  &__product-details {
+    // Align main foto an description field
+    @include display_flex($align: flex-start, $justify: space-between);
+    & .pdp__product-description {
+      // Align desription section
+      @include display_flex($direction: column, $align: flex-start);
+      & .pdp__product-attributes {
+        // Align attributes section
+        @include display_flex($direction: column, $justify: flex-start, $gap: 1.5rem);
+        & .pdp__attribute, .pdp__price {
+          // Align single attribute section: Name + attribute array
+          @include display_flex($direction: column, $align: flex-start, $gap: 0.5rem);
+          & .pdp__attribute-values {
+            //Align attribute array buttons
+            @include display_flex($justify: flex-start, $gap: 0.75rem);
+            & .pdp__value-text {
+              // Align content in each button
+              @include display_flex();
+            }
+            // If attribute value is color, change gap to smaller
+            &:has( .pdp__value-color) {
+              gap: 8px;
+            }
+          }
+        }
+        & .pdp__price {
+          margin-top: 0.5rem;
+        }
+      }
+
+    }
+  }
+}
+

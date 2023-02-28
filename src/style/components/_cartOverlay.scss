@@ -1,0 +1,35 @@
+.cart {
+  //Animation on click
+  &__overlay{
+    &.open{
+      @include animation_fade(in);
+      & .cart__container{
+        @include animation_dropdown(open, $delay: 0.5ms)
+      }
+    }
+    &.closed{
+      @include animation_fade(out);
+      & .cart__container{
+        @include animation_dropdown(close, $delay: 0.5ms)
+      }
+    }
+  }
+  &__container {
+    background-color: $color_dropdown_background;
+  }
+  &__product-list {
+    @include display_flex($direction: column, $gap: 32px, $align: flex-start);
+    min-width: max-content;
+    & .cart__product-quantity{
+      @include typography($line-height: 160%);
+    }
+    & .cart__product-total{
+      & .cart__text{
+        @include typography($font-family: $font_roboto, $font-weight: 500, $line-height: 112%);
+      }
+      & .cart__amount {
+        @include typography($font-weight: 700);
+      }
+    }
+  }
+}

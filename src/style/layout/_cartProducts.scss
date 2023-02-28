@@ -1,0 +1,106 @@
+// Layout of cartProducts by default
+.cart-products {
+  @include display_flex($direction: column, $gap: 24px, $justify: normal, $align: normal);
+  //Item wrapper
+  & .product {
+    border-bottom: 1px #E5E5E5 solid;
+    padding: 24px 0;
+    &:first-child {
+      border-top: 1px #E5E5E5 solid;
+    }
+    @include display_flex($justify: space-between, $align: stretch);
+    //Product description section
+    & .product__description {
+      @include display_flex($direction: column, $gap: 20px, $align: flex-start);
+      & .description__wrapper {
+        @include display_flex($direction: column, $gap: 16px, $align: flex-start);
+      }
+      & .description__attributes {
+        @include display_flex($direction: column, $gap: 16px, $align: flex-start);
+        & .attribute {
+          @include display_flex($direction: column, $gap: 8px, $align: flex-start);
+          & .attribute__values {
+            @include display_flex($gap: 8px, $align: flex-start);
+          }
+        }
+      }
+    }
+    //Product feature section (q-ty change, image pagination)
+    & .product__features {
+      @include display_flex($gap: 24px, $justify: normal, $align: normal);
+      & .feature__quantity {
+        @include display_flex($direction: column, $justify: space-between);
+      }
+      & .feature__image {
+        position: relative;
+        & .image {
+          max-width: 200px;
+          width: auto;
+          height: 100%;        
+          object-fit: contain;
+        }
+        & .image__pagination {
+          @include display_flex($gap: 8px);
+          @include position_absolute($bottom: 16px, $right: 16px);
+        }
+      }
+
+    }
+  }
+}
+
+// Layout of cartProducts in overlay
+.cart-products.overlay {
+  padding-left: 4px;
+  max-height: 425px;
+  overflow-y: scroll;
+  overflow-x: visible;
+  scroll-behavior: smooth;
+  @include display_flex($direction: column, $gap: 40px, $justify: normal, $align: normal);
+  // Item wrapper
+  & .product {
+    border-bottom: none;
+    padding: 0;
+    &:first-child {
+      border-top: none;
+    }
+    @include display_flex($justify: space-between, $gap: 20px, $align: stretch);
+    //Product description section
+    & .product__description {
+      max-width: max-content;
+      @include display_flex($direction: column, $gap: 8px, $align: flex-start);
+      & .description__wrapper {
+        @include display_flex($direction: column, $gap: 4px, $align: flex-start);
+      }
+      & .description__attributes {
+        @include display_flex($direction: column, $gap: 16px, $align: flex-start);
+        & .attribute {
+          @include display_flex($direction: column, $gap: 8px, $align: flex-start);
+          & .attribute__values {
+            
+            @include display_flex($gap: 8px, $align: flex-start);
+          }
+        }
+      }
+    }
+    //Product feature section (q-ty change, image pagination)
+    & .product__features {
+      @include display_flex($gap: 8px, $justify: normal, $align: normal);
+      & .feature__quantity {
+        @include display_flex($direction: column, $justify: space-between);
+      }
+      & .feature__image {
+        position: relative;
+        & .image {
+          max-width: 120px;
+          
+        }
+        & .image__pagination {
+          @include display_flex($gap: 8px);
+          @include position_absolute($bottom: 16px, $right: 16px);
+        }
+      }
+
+    }
+  }
+}
